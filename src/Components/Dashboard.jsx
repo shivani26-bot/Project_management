@@ -25,7 +25,6 @@ const Dashboard = () => {
               <MdKeyboardArrowDown />
             </div>
           </div>
-
           <div className="w-[6rem] p-1 flex items-center gap-2 bg-white">
             <p className="text-sm">Sort</p>
             <div className="flex items-center gap-2">
