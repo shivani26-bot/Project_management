@@ -3,7 +3,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { GoPlus } from "react-icons/go";
 import DummyData from "../utils/DummyData";
 
-const Dashboard = () => {
+const ProjectDashboard = () => {
   const [expandedProjects, setExpandedProjects] = useState([]);
 
   const toggleExpand = (projectId) => {
@@ -113,4 +113,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default ProjectDashboard;

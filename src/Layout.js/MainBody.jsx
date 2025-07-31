@@ -1,8 +1,8 @@
 // src/components/MainBody.jsx
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import SideBar from "./SideBar";
+import Header from "../Components/Header";
+import SideBar from "../Components/SideBar";
 
 const MainBody = () => (
   <div className="w-screen h-screen flex flex-col bg-[#D9D9D92E]">

@@ -75,7 +75,7 @@ export default function Login() {
       } else {
         notifySuccess();
         setTimeout(() => {
-          navigate("/dashboard");
+          navigate("/home/spaceDashboard");
         }, 3000);
       }
     });

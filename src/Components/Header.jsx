@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import memberIcon from "../assets/Ellipse 3.png";
+import { useDispatch, useSelector } from "react-redux";
+import GetUserDetails from "../utils/GetUserDetails";
+import { setUser } from "../redux/feature/userDetailSlice";
+
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const userData = useSelector(state => state.userDetail.user)
+  console.log(userData)
+  useEffect(()=>{
+    const fetchUser = async()=>{
+        const loggedInUser= await GetUserDetails()
+        // console.log(loggedInUser)
+        dispatch(setUser(loggedInUser.data))
+    }
+    fetchUser()
+  },[])
+
   return (
     <>
       <div className="fixed top-0 left-0 w-full bg-white border-b shadow-sm z-50 flex items-center px-[32px] py-[16px] space-x-[32px]">
@@ -35,8 +51,8 @@ const Header = () => {
 
         <div className="flex items-center space-x-[12px]">
           <div className="text-right">
-            <div className="text-sm font-medium">Jane Cooper</div>
-            <div className="text-xs text-gray-500">Developer</div>
+            <div className="text-sm font-medium">{userData?.name}</div>
+            {/* <div className="text-xs text-gray-500">Developer</div> */}
           </div>
           <div className="w-[40px] h-[40px] bg-gray-200 rounded-full">
             <img

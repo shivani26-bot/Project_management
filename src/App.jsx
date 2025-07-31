@@ -1,32 +1,39 @@
 import React from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import AddProject from "./Components/AddProject";
-import CreateSpaceCard from "./Components/CreateSpaceCard";
-import MainBody from "./Components/MainBody";
-import Dashboard from "./Components/Dashboard";
+import CreateSpaceCard from "./pages/CreateSpaceCard";
+import MainBody from "./Layout.js/MainBody";
 import Login from "./pages/LoginPage";
 import Register from "./pages/Register";
+import SpaceDashboard from "./pages/SpaceDashboard";
+import ProjectDashboard from "./Components/ProjectDashboard";
 
 function App() {
   const appRouter = createBrowserRouter([
-     {
-path: "/login",
-      element: <Login />,
-      
-    },
-         {
-path: "/register",
-      element: <Register/>,
-      
+    {
+      path:'/',
+      element: <Navigate to='/register' />
     },
     {
-      path: "/",
+      path: "/login",
+      element: <Login />,
+
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+    {
+      path: "/home",
       element: <MainBody />,
       children: [
-       
         {
-          path:'dashboard',
-          element: <Dashboard/>
+          path: 'spaceDashboard',
+          element: <SpaceDashboard />
+        },
+        {
+          path:'projectDashboard',
+          element: <ProjectDashboard/>
         },
         {
           path: "createSpace",
@@ -38,7 +45,7 @@ path: "/register",
         },
       ],
     }
-   
+
   ]);
   return <RouterProvider router={appRouter} />;
 }
