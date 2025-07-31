@@ -32,7 +32,7 @@ function App() {
           element: <SpaceDashboard />
         },
         {
-          path:'projectDashboard',
+          path:'projectDashboard/:spaceId',
           element: <ProjectDashboard/>
         },
         {

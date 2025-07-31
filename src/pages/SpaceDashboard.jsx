@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { GoPlus } from "react-icons/go";
 import DummySpace from '../utils/DummySpace';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GetUserDetails from '../utils/GetUserDetails';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSpaces, setUser } from '../redux/feature/userDetailSlice';
@@ -10,6 +10,7 @@ import getSpaceDetails from '../utils/getSpaceDetails';
 
 const SpaceDashboard = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const spaces = useSelector(state=>state.userDetail.spaces)
     console.log('spaces',spaces?.data)
     useEffect(()=>{
@@ -26,6 +27,7 @@ const SpaceDashboard = () => {
         fetchUser()
         fetchSpace()
       },[])
+
   return (
     <div className="p-5 w-full h-full">
       <div className="w-full flex justify-between items-center">
@@ -72,6 +74,7 @@ const SpaceDashboard = () => {
                 {/* 🟦 Project Row with Gray Background */}
                 <tr
                   className="cursor-pointer bg-gray-100 hover:bg-gray-200"
+                   onClick={()=>navigate(`/home/projectDashboard/${space._id}`)}
                 >
                   <td className="px-4 py-3 font-semibold text-gray-800">
                     {space.spaceName}

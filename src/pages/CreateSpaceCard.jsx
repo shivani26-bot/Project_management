@@ -200,6 +200,7 @@ const CreateSpaceCard = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
